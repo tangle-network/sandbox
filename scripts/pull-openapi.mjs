@@ -7,7 +7,7 @@ const specUrl =
 
 const response = await fetch(specUrl, {
   headers: {
-    "User-Agent": "tangle-sandbox-sdk-openapi-sync"
+    "User-Agent": "tangle-sandbox-openapi-sync"
   }
 });
 

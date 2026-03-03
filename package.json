@@ -32,12 +32,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/tangle-network/tangle-sandbox-sdk.git"
+    "url": "https://github.com/tangle-network/sandbox.git"
   },
   "bugs": {
-    "url": "https://github.com/tangle-network/tangle-sandbox-sdk/issues"
+    "url": "https://github.com/tangle-network/sandbox/issues"
   },
-  "homepage": "https://github.com/tangle-network/tangle-sandbox-sdk#readme",
+  "homepage": "https://github.com/tangle-network/sandbox#readme",
   "publishConfig": {
     "access": "public"
   },
