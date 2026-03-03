@@ -6,7 +6,7 @@
  * Run with: npx tsx examples/basic-usage.ts
  */
 
-import { Sandbox } from "@tangle/sandbox";
+import { Sandbox } from "@tangle-network/sandbox";
 
 async function main() {
   // Initialize the client with your API key

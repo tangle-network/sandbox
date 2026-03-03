@@ -14,7 +14,7 @@
  *   S3_REGION - AWS region (default: us-east-1)
  */
 
-import { Sandbox, type StorageConfig } from "@tangle/sandbox";
+import { Sandbox, type StorageConfig } from "@tangle-network/sandbox";
 
 async function main() {
   // Configure your S3-compatible storage

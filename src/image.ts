@@ -5,7 +5,7 @@
  *
  * @example Basic usage
  * ```typescript
- * import { Image, Sandbox } from "@tangle/sandbox";
+ * import { Image, Sandbox } from "@tangle-network/sandbox";
  *
  * const client = new Sandbox({ apiKey: "sk_sandbox_..." });
  *

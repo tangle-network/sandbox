@@ -37,7 +37,7 @@ const DEFAULT_TIMEOUT_MS = 30000;
  *
  * @example
  * ```typescript
- * import { Sandbox } from "@tangle/sandbox";
+ * import { Sandbox } from "@tangle-network/sandbox";
  *
  * const client = new Sandbox({
  *   apiKey: "sk_sandbox_...",

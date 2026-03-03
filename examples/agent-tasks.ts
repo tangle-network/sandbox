@@ -6,7 +6,7 @@
  * Run with: npx tsx examples/agent-tasks.ts
  */
 
-import { Sandbox } from "@tangle/sandbox";
+import { Sandbox } from "@tangle-network/sandbox";
 
 async function main() {
   const client = new Sandbox({

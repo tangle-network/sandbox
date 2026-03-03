@@ -7,7 +7,7 @@
  *
  * @example Basic Usage
  * ```typescript
- * import { Sandbox } from "@tangle/sandbox";
+ * import { Sandbox } from "@tangle-network/sandbox";
  *
  * const client = new Sandbox({ apiKey: process.env.TANGLE_API_KEY });
  *

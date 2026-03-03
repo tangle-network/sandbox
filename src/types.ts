@@ -4,7 +4,7 @@
  * Public types for the Sandbox client SDK.
  *
  * @packageDocumentation
- * @module @tangle/sandbox
+ * @module @tangle-network/sandbox
  */
 
 // ============================================

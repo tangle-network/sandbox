@@ -1,21 +1,21 @@
-# @tangle/sandbox
+# @tangle-network/sandbox
 
 TypeScript SDK for the Tangle Sandbox platform. Create isolated dev containers, run AI agents, and build automation workflows.
 
 ## Installation
 
 ```bash
-npm install @tangle/sandbox
+npm install @tangle-network/sandbox
 # or
-pnpm add @tangle/sandbox
+pnpm add @tangle-network/sandbox
 # or
-yarn add @tangle/sandbox
+yarn add @tangle-network/sandbox
 ```
 
 ## Quick Start
 
 ```typescript
-import { Sandbox } from "@tangle/sandbox";
+import { Sandbox } from "@tangle-network/sandbox";
 
 // Initialize the client
 const client = new Sandbox({
@@ -90,7 +90,7 @@ pending -> provisioning -> running -> stopped -> deleted
 ### Client
 
 ```typescript
-import { Sandbox } from "@tangle/sandbox";
+import { Sandbox } from "@tangle-network/sandbox";
 
 const client = new Sandbox({
   apiKey: "sk_sandbox_...",
@@ -427,7 +427,7 @@ import {
   StateError,
   TimeoutError,
   ValidationError,
-} from "@tangle/sandbox";
+} from "@tangle-network/sandbox";
 
 try {
   await box.exec("npm test");
@@ -467,7 +467,7 @@ import type {
   BatchResult,
   BatchOptions,
   UsageInfo,
-} from "@tangle/sandbox";
+} from "@tangle-network/sandbox";
 ```
 
 ## Examples
@@ -491,7 +491,7 @@ This repository ships a generated OpenAPI artifact for SDK-facing HTTP endpoints
 
 - `openapi/sandbox-api.openapi.json`
 - `openapi/metadata.json` (generation provenance)
-- Package export: `@tangle/sandbox/openapi`
+- Package export: `@tangle-network/sandbox/openapi`
 
 Commands:
 

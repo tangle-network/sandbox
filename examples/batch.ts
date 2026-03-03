@@ -6,7 +6,7 @@
  * Run with: npx tsx examples/batch.ts
  */
 
-import { type BatchTask, Sandbox } from "@tangle/sandbox";
+import { type BatchTask, Sandbox } from "@tangle-network/sandbox";
 
 async function main() {
   const client = new Sandbox({
