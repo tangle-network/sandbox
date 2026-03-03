@@ -1,0 +1,82 @@
+{
+  "name": "@tangle/sandbox",
+  "version": "0.1.0",
+  "description": "Public TypeScript SDK for the Tangle Sandbox API",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./tangle": {
+      "import": "./dist/tangle/index.js",
+      "types": "./dist/tangle/index.d.ts"
+    },
+    "./openapi": "./openapi/sandbox-api.openapi.json"
+  },
+  "files": [
+    "dist",
+    "openapi/sandbox-api.openapi.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "sandbox",
+    "dev-container",
+    "ai",
+    "agent",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tangle-network/tangle-sandbox-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tangle-network/tangle-sandbox-sdk/issues"
+  },
+  "homepage": "https://github.com/tangle-network/tangle-sandbox-sdk#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "clean": "rm -rf dist coverage docs/sdk docs/api",
+    "build": "tsdown",
+    "check-types": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts",
+    "test:e2e:watch": "vitest --config vitest.e2e.config.ts",
+    "openapi:pull": "node ./scripts/pull-openapi.mjs",
+    "openapi:types": "openapi-typescript ./openapi/sandbox-api.openapi.json -o ./src/generated/openapi-types.ts",
+    "openapi:validate": "swagger-cli validate ./openapi/sandbox-api.openapi.json",
+    "docs:api": "mkdir -p docs/api && redoc-cli bundle ./openapi/sandbox-api.openapi.json -o ./docs/api/index.html",
+    "docs:sdk": "typedoc --entryPoints ./src/index.ts ./src/tangle/index.ts --out ./docs/sdk --readme none --validation.notExported false",
+    "docs:build": "pnpm docs:api && pnpm docs:sdk",
+    "prepack": "pnpm check-types && pnpm build && pnpm openapi:validate"
+  },
+  "peerDependencies": {
+    "viem": "^2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "viem": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@apidevtools/swagger-cli": "^4.0.4",
+    "@types/node": "^24.3.0",
+    "dotenv": "^16.4.5",
+    "openapi-typescript": "^7.10.1",
+    "redoc-cli": "^0.13.21",
+    "tsdown": "^0.16.1",
+    "typedoc": "^0.28.13",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}
