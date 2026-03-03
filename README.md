@@ -490,6 +490,7 @@ MIT
 This repository ships a generated OpenAPI artifact for SDK-facing HTTP endpoints:
 
 - `openapi/sandbox-api.openapi.json`
+- `openapi/metadata.json` (generation provenance)
 - Package export: `@tangle/sandbox/openapi`
 
 Commands:

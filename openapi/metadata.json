@@ -1,0 +1,6 @@
+{
+  "generatedAt": "2026-03-03T01:31:12Z",
+  "sourceRepository": "tangle-network/agent-dev-container",
+  "sourceCommit": "71b98ec11cd7bfb8cc824b62b8476a8c4ac8d10f",
+  "generator": "@hono/zod-openapi route extraction + openapi-typescript"
+}
