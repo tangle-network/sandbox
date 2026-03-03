@@ -1,9 +1,15 @@
 name: Publish
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - "v*"
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run publish in dry-run mode"
+        required: true
+        default: "true"
 
 jobs:
   publish:
@@ -24,4 +30,25 @@ jobs:
       - run: pnpm test
       - run: pnpm build
       - run: pnpm openapi:validate
-      - run: pnpm publish --access public --provenance --no-git-checks
+      - name: Ensure tag matches package version
+        if: github.event_name == 'push'
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          PKG_VERSION="$(node -p \"require('./package.json').version\")"
+          if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
+            echo "Tag version ($TAG_VERSION) does not match package.json version ($PKG_VERSION)"
+            exit 1
+          fi
+      - name: Publish (dry-run)
+        if: github.event_name == 'workflow_dispatch' && inputs.dry_run == 'true'
+        run: pnpm publish --access public --provenance --dry-run --no-git-checks
+      - name: Publish (tag)
+        if: github.event_name == 'push'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish --access public --provenance --no-git-checks
+      - name: Publish (manual)
+        if: github.event_name == 'workflow_dispatch' && inputs.dry_run != 'true'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish --access public --provenance --no-git-checks

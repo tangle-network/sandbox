@@ -58,6 +58,8 @@
     "docs:api": "mkdir -p docs/api && redoc-cli bundle ./openapi/sandbox-api.openapi.json -o ./docs/api/index.html",
     "docs:sdk": "typedoc --entryPoints ./src/index.ts ./src/tangle/index.ts --out ./docs/sdk --readme none --validation.notExported false",
     "docs:build": "pnpm docs:api && pnpm docs:sdk",
+    "release:dry-run": "pnpm publish --access public --provenance --dry-run --no-git-checks",
+    "release:pack": "rm -rf .artifacts && mkdir -p .artifacts && pnpm pack --pack-destination .artifacts",
     "prepack": "pnpm check-types && pnpm build && pnpm openapi:validate"
   },
   "peerDependencies": {
